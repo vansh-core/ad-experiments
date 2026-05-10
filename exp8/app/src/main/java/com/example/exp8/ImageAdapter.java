@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import com.bumptech.glide.Glide;
 
 public class ImageAdapter extends PagerAdapter {
 
@@ -15,19 +16,18 @@ public class ImageAdapter extends PagerAdapter {
         this.mContext = context;
     }
 
-    // Array of images from res/drawable folder
-    // IMPORTANT: Add image1.jpg to image5.jpg in your drawable folder!
-    private int[] sliderImageId = new int[]{
-            R.drawable.image1,
-            R.drawable.image2,
-            R.drawable.image3,
-            R.drawable.image4,
-            R.drawable.image5
+    // Array of image URLs from the internet
+    private String[] sliderImageUrl = new String[]{
+            "https://picsum.photos/id/10/800/400",
+            "https://picsum.photos/id/20/800/400",
+            "https://picsum.photos/id/30/800/400",
+            "https://picsum.photos/id/40/800/400",
+            "https://picsum.photos/id/50/800/400"
     };
 
     @Override
     public int getCount() {
-        return sliderImageId.length;
+        return sliderImageUrl.length;
     }
 
     @Override
@@ -39,7 +39,14 @@ public class ImageAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView = new ImageView(mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setImageResource(sliderImageId[position]);
+        
+        // Load image using Glide
+        Glide.with(mContext)
+                .load(sliderImageUrl[position])
+                .placeholder(android.R.drawable.progress_horizontal) // optional placeholder
+                .error(android.R.drawable.stat_notify_error)       // optional error image
+                .into(imageView);
+
         ((ViewPager) container).addView(imageView, 0);
         return imageView;
     }

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">automatic_image_slider</string>
+    <string name="slider_image">Slider Image</string>
+    <string name="app_title">Automatic Image Slider</string>
+</resources>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">exp5</string>
+    <string name="app_name">exp3</string>
     <string name="fragment_2_receiver">Fragment 2 - Receiver</string>
     <string name="no_message_yet">No message yet</string>
     <string name="received_message">Received: %1$s</string>
