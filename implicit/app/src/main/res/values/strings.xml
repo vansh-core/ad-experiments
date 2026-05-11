@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">implicit</string>
+    <string name="search_hint">Enter URL</string>
+    <string name="search_button">Search</string>
+</resources>
